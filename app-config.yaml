@@ -61,7 +61,14 @@ techdocs:
   generator:
     runIn: 'docker' # Alternatives - 'local'
   publisher:
-    type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+    type: 'awsS3' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+    awsS3:
+      bucketName: 'techdocs-storage123'
+      bucketRootPath: '/'
+      credentials:
+        accessKeyId: ${process.env.AWS_ACCESS_KEY_ID}
+        secretAccessKey: ${process.env.AWS_SECRET_ACCESS_KEY}
+        region: ${process.env.AWS_REGION}
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
