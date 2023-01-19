@@ -16,6 +16,7 @@ import { SearchPage } from '@backstage/plugin-search';
 import { TechRadarPage } from '@backstage/plugin-tech-radar';
 import {
   TechDocsIndexPage,
+  DefaultTechDocsHome,
   techdocsPlugin,
   TechDocsReaderPage,
 } from '@backstage/plugin-techdocs';
@@ -63,7 +64,9 @@ const routes = (
     >
       {entityPage}
     </Route>
-    <Route path="/docs" element={<TechDocsIndexPage />} />
+    <Route path="/docs" element={<TechDocsIndexPage />}>
+      <DefaultTechDocsHome />
+    </Route>
     <Route
       path="/docs/:namespace/:kind/:name/*"
       element={<TechDocsReaderPage />}
