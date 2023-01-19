@@ -1,0 +1,8 @@
+site_name: 'example-docs'
+
+nav:
+  - Home: index.md
+  - Hello: hello.md
+
+plugins:
+  - techdocs-core
