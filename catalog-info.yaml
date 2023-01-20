@@ -5,7 +5,7 @@ metadata:
   description: example.com
   annotations:
     backstage.io/techdocs-ref: dir:.
-    github.com/project-slug: backstage/backstage
+    # github.com/project-slug: backstage/backstage
 spec:
   type: website
   owner: john@example.com
