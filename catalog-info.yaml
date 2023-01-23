@@ -4,14 +4,8 @@ metadata:
   name: example
   description: example.com
   annotations:
-    backstage.io/techdocs-ref: dir:.
-  # links:
-  # - url: https://github.com/itisaby
-  #   title: My Dashboard
-  #   icon: dashboard
-    # github.com/project-slug: itisaby/DevPro
-    # github.com/project-slug: backstage/backstage
+    backstage.io/techdocs-ref: dir:. # Path to the directory containing mkdocs.yml
 spec:
   type: website
-  lifecycle: unknown
-  owner: guests
+  lifecycle: production
+  owner: user:guest
