@@ -2,8 +2,10 @@ name: Publish TechDocs Site
 
 on:
   push:
-    branches: [main]
-    
+    paths:
+      - 'docs/**'
+    # branches:
+    #   - main
 
 jobs:
   publish-techdocs-site:
