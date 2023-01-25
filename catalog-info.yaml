@@ -1,32 +1,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Backend-First
-  links:
-    - url: https://github.com/itisaby
-      title: My Dashboard
-      icon: dashboard
-  annotations:
-    backstage.io/techdocs-ref: url:https://github.com/itisaby/Backstage-First/tree/main # Path to the directory containing mkdocs.yml
-    github.com/project-slug: itisaby/Backstage-First
-    github.com/project-readme-path: README.md
-spec:
-  type: website
-  lifecycle: experimental
-  owner: guests
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
   name: DevPro
   links:
     - url: https://github.com/itisaby
       title: My Dashboard
       icon: dashboard
   annotations:
-    backstage.io/techdocs-ref: url:https://github.com/itisaby/DevPro/tree/master
-    github.com/project-slug: itisaby/DevPro
-    github.com/project-readme-path: README.md
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: other
   lifecycle: unknown
