@@ -7,7 +7,7 @@ metadata:
       title: My Dashboard
       icon: dashboard
   annotations:
-    backstage.io/techdocs-ref: url:https://github.com/itisaby/Backstage-First/tree/main
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: website
   lifecycle: experimental

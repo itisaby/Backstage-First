@@ -92,12 +92,12 @@ catalog:
     - allow: [Component, System, API, Resource, Location]
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
-    - type: file
-      target: ../../catalog-info.yaml
-
-    # Local example template
     - type: url
       target: https://github.com/itisaby/Backstage-First/blob/main/catalog-info.yaml
+
+    # Local example template
+    - type: file
+      target: ../../examples/template/template.yaml
       rules:
         - allow: [Template]
 
@@ -113,9 +113,9 @@ catalog:
         - allow: [Template]
    
 
-    # # Uncomment these lines to add more example data
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+    # Uncomment these lines to add more example data
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
     # # Uncomment these lines to add an example org
     # - type: url
