@@ -96,8 +96,8 @@ catalog:
       target: ../../catalog-info.yaml
 
     # Local example template
-    - type: file
-      target: ../../examples/template/template.yaml
+    - type: url
+      target: https://github.com/itisaby/Backstage-First/blob/main/catalog-info.yaml
       rules:
         - allow: [Template]
 
