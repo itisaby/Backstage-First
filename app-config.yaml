@@ -57,7 +57,7 @@ proxy:
 # and an external cloud storage when deploying TechDocs for production use-case.
 # https://backstage.io/docs/features/techdocs/how-to-guides#how-to-migrate-from-techdocs-basic-to-recommended-deployment-approach
 techdocs:
-  builder: 'local' # Alternatives - 'external'
+  builder: 'external' # Alternatives - 'external'
   generator:
     runIn: 'local' # Alternatives - 'local'
   publisher:
@@ -94,6 +94,9 @@ catalog:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: url
       target: https://github.com/itisaby/Backstage-First/blob/main/catalog-info.yaml
+    
+    - type: url
+      target: https://github.com/itisaby/Backstage-First/blob/main/catalog-info.yaml
 
     # Local example template
     - type: file
@@ -113,9 +116,9 @@ catalog:
         - allow: [Template]
    
 
-    # Uncomment these lines to add more example data
-    - type: url
-      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+    # # Uncomment these lines to add more example data
+    # - type: url
+    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
     # # Uncomment these lines to add an example org
     # - type: url
