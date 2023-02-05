@@ -13,7 +13,7 @@ spec:
   lifecycle: experimental
   owner: guests
   dependsOn:
-    - component:DevPro
+    - component:
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
