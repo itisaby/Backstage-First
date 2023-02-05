@@ -94,9 +94,6 @@ catalog:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: url
       target: https://github.com/itisaby/Backstage-First/blob/main/catalog-info.yaml
-    
-    - type: url
-      target: https://github.com/itisaby/Backstage-First/blob/main/catalog-info.yaml
 
     # Local example template
     - type: file

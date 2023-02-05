@@ -49,27 +49,31 @@ spec:
   type: other
   lifecycle: unknown
   owner: guests
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: ortelius-www
-  description: Ortelius Website
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: ortelius-www
-    backstage.io/kubernetes-id: ortelius-www
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
   dependsOn:
-    - component:default/backstagefirst2
+    - component:default/DevPro
+    - component:default/DevWorld
+    - component:default/backendfirst2
+---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: ortelius-www
+#   description: Ortelius Website
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: ortelius-www
+#     backstage.io/kubernetes-id: ortelius-www
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/backstagefirst2
 ---
 # apiVersion: backstage.io/v1alpha1
 # kind: Component
