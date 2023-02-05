@@ -1,21 +1,4 @@
 apiVersion: backstage.io/v1alpha1
-kind: Domain
-metadata:
-  name: admin
-  description: Admin
-spec:
-  owner: user:guest
----
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: Platform
-  description: Platform
-spec:
-  owner: user:guest
-  domain: admin
----
-apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: backendfirst2
