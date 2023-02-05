@@ -88,314 +88,314 @@ spec:
   dependsOn:
     - component:default/backstagefirst2
 ---
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: ingress-nginx
-  description: Ortelius Cluster Ingress
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    backstage.io/kubernetes-id: ingress-nginx
-    argocd/app-name: ingress-nginx
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
-    - component:default/kube-prometheus-stack
-    - component:default/jaeger
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: kube-prometheus-stack
-  description: Ortelius Grafana Instance
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: kube-prometheus-stack
-    backstage.io/kubernetes-id: kube-prometheus-stack
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
-    - component:default/ingress-nginx
-    - component:default/cert-manager
-    - component:default/external-dns
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: argo-rollouts
-  description: Ortelius Argo Rollouts Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: argo-rollouts
-    backstage.io/kubernetes-id: argo-rollouts
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
-    - component:default/cert-manager
-    - component:default/external-dns
-    - component:default/ingress-nginx
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: argocd
-  description: Ortelius Argo CD Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: argocd
-    backstage.io/kubernetes-id: argocd
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/cert-manager
-    - component:default/external-dns
-    - component:default/ingress-nginx
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: backstage
-  description: Ortelius Backstage Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: backstage
-    backstage.io/kubernetes-id: backstage
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
-    - component:default/cert-manager
-    - component:default/external-dns
-    - component:default/ingress-nginx
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: jaeger
-  description: Ortelius Jaeger Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: jaeger
-    backstage.io/kubernetes-id: jaeger
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
-    - component:default/cert-manager
-    - component:default/external-dns
-    - component:default/ingress-nginx
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: loki-stack
-  description: Ortelius Loki-Stack Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: loki-stack
-    backstage.io/kubernetes-id: loki-stack
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: opentelemetry-collector
-  description: Ortelius Openelemetry Collector Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: opentelemetry-collector
-    backstage.io/kubernetes-id: opentelemetry-collector
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: ortelius-docs
-  description: Ortelius Docs
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: ortelius-docs
-    backstage.io/kubernetes-id: ortelius-docs
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: ortelius-www
-  description: Ortelius Website
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: ortelius-www
-    backstage.io/kubernetes-id: ortelius-www
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: podtatohead-prod
-  description: Ortelius Podtatohead Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: podtatohead-prod
-    backstage.io/kubernetes-id: podtatohead-prod
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: postgresql
-  description: Ortelius postgress SQL Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: postgresql
-    backstage.io/kubernetes-id: postgresql
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: external-dns
-  description: Ortelius External DNS Cluster
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: postgresql
-    backstage.io/kubernetes-id: postgresql
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: cert-manager
-  description: Ortelius Cert Manager
-  annotations:
-    github.com/project-slug: ortelius/ortelius-docs
-    github.com/project-readme-path: README.md
-    argocd/app-name: postgresql
-    backstage.io/kubernetes-id: postgresql
-    backstage.io/techdocs-ref: dir:.
-  tags:
-    - platform
-spec:
-  type: service
-  owner: user:guest
-  system: Platform
-  lifecycle: production
-  dependsOn:
-    - component:default/argocd
----
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: ingress-nginx
+#   description: Ortelius Cluster Ingress
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     backstage.io/kubernetes-id: ingress-nginx
+#     argocd/app-name: ingress-nginx
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+#     - component:default/kube-prometheus-stack
+#     - component:default/jaeger
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: kube-prometheus-stack
+#   description: Ortelius Grafana Instance
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: kube-prometheus-stack
+#     backstage.io/kubernetes-id: kube-prometheus-stack
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+#     - component:default/ingress-nginx
+#     - component:default/cert-manager
+#     - component:default/external-dns
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: argo-rollouts
+#   description: Ortelius Argo Rollouts Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: argo-rollouts
+#     backstage.io/kubernetes-id: argo-rollouts
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+#     - component:default/cert-manager
+#     - component:default/external-dns
+#     - component:default/ingress-nginx
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: argocd
+#   description: Ortelius Argo CD Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: argocd
+#     backstage.io/kubernetes-id: argocd
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/cert-manager
+#     - component:default/external-dns
+#     - component:default/ingress-nginx
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: backstage
+#   description: Ortelius Backstage Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: backstage
+#     backstage.io/kubernetes-id: backstage
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+#     - component:default/cert-manager
+#     - component:default/external-dns
+#     - component:default/ingress-nginx
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: jaeger
+#   description: Ortelius Jaeger Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: jaeger
+#     backstage.io/kubernetes-id: jaeger
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+#     - component:default/cert-manager
+#     - component:default/external-dns
+#     - component:default/ingress-nginx
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: loki-stack
+#   description: Ortelius Loki-Stack Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: loki-stack
+#     backstage.io/kubernetes-id: loki-stack
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: opentelemetry-collector
+#   description: Ortelius Openelemetry Collector Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: opentelemetry-collector
+#     backstage.io/kubernetes-id: opentelemetry-collector
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: ortelius-docs
+#   description: Ortelius Docs
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: ortelius-docs
+#     backstage.io/kubernetes-id: ortelius-docs
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: ortelius-www
+#   description: Ortelius Website
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: ortelius-www
+#     backstage.io/kubernetes-id: ortelius-www
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: podtatohead-prod
+#   description: Ortelius Podtatohead Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: podtatohead-prod
+#     backstage.io/kubernetes-id: podtatohead-prod
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: postgresql
+#   description: Ortelius postgress SQL Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: postgresql
+#     backstage.io/kubernetes-id: postgresql
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: external-dns
+#   description: Ortelius External DNS Cluster
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: postgresql
+#     backstage.io/kubernetes-id: postgresql
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: cert-manager
+#   description: Ortelius Cert Manager
+#   annotations:
+#     github.com/project-slug: ortelius/ortelius-docs
+#     github.com/project-readme-path: README.md
+#     argocd/app-name: postgresql
+#     backstage.io/kubernetes-id: postgresql
+#     backstage.io/techdocs-ref: dir:.
+#   tags:
+#     - platform
+# spec:
+#   type: service
+#   owner: user:guest
+#   system: Platform
+#   lifecycle: production
+#   dependsOn:
+#     - component:default/argocd
+# ---
 
