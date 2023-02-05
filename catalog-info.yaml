@@ -14,6 +14,7 @@ spec:
   owner: guests
   dependsOn:
     - component:default/DevPro
+    - component:default/DevWorld
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
