@@ -12,7 +12,8 @@ spec:
   type: website
   lifecycle: experimental
   owner: guests
-  dependsOn: ['resource:artists-db']
+  dependsOn:
+    - devpro
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -30,5 +31,3 @@ spec:
   type: other
   lifecycle: unknown
   owner: guests
-  dependsOn:
-    - backendfirst
