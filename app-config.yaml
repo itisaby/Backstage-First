@@ -57,7 +57,7 @@ proxy:
 # and an external cloud storage when deploying TechDocs for production use-case.
 # https://backstage.io/docs/features/techdocs/how-to-guides#how-to-migrate-from-techdocs-basic-to-recommended-deployment-approach
 techdocs:
-  builder: 'external' # Alternatives - 'external'
+  builder: 'local' # Alternatives - 'external'
   generator:
     runIn: 'local' # Alternatives - 'local'
   publisher:
@@ -115,13 +115,12 @@ catalog:
       rules:
         - allow: [Template]
    
+    # Uncomment these lines to add more example data
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
-    # # Uncomment these lines to add more example data
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
-
-    # # Uncomment these lines to add an example org
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
-    #   rules:
-    #     - allow: [User, Group]
+    # Uncomment these lines to add an example org
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+      rules:
+        - allow: [User, Group]

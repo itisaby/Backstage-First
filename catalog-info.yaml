@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Backend-First
+  name: backendfirst
   links:
     - url: https://github.com/itisaby/Backstage-First/tree/main
       title: My Dashboard
@@ -12,11 +12,12 @@ spec:
   type: website
   lifecycle: experimental
   owner: guests
+  dependsOn: ['resource:artists-db']
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: DevPro
+  name: devpro
   links:
     - url: https://github.com/itisaby
       title: My Dashboard
@@ -29,3 +30,5 @@ spec:
   type: other
   lifecycle: unknown
   owner: guests
+  dependsOn:
+    - backendfirst
