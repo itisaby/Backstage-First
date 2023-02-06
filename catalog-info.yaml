@@ -3,8 +3,14 @@ kind: Component
 metadata:
   name: backendfirst2
   links:
-    - url: https://github.com/itisaby/Backstage-First/tree/main
-      title: My Dashboard
+    - url: https://github.com/ortelius/ortelius-kubernetes
+      title: GitHub
+      icon: dashboard
+    - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+      title: Artifact Hub
+      icon: dashboard
+    - url: https://github.com/prometheus-operator/kube-prometheus
+      title: Project Website
       icon: dashboard
   annotations:
     backstage.io/techdocs-ref: dir:.
