@@ -21,6 +21,8 @@ spec:
   dependsOn:
     - component:default/DevPro
     - component:default/DevWorld
+  providesApis:
+    - example-grpc-api
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -79,6 +81,26 @@ spec:
   dependsOn:
     - component:default/backstagefirst2
     - component:default/DevWorld
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: example-grpc-api
+spec:
+  type: grpc
+  lifecycle: experimental
+  owner: guests
+  system: examples
+  definition: |
+    syntax = "proto3";
+
+    service Exampler {
+      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+    }
+
+    message ExampleMessage {
+      string example = 1;
+    };
 ---
 # apiVersion: backstage.io/v1alpha1
 # kind: Component
