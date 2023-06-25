@@ -8,3 +8,8 @@ To start the app, run:
 yarn install
 yarn dev
 ```
+- Backstage integration in Techdocs
+- Prometheus
+- Grafana
+- Github
+- Argo CD
